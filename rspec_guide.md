@@ -180,8 +180,6 @@ end
 
 On old projects you can use the transpec to convert them to the new syntax.
 
-More about the new Rspec expectation syntax can be found here and here.
-
 ### Use subject
 
 If you have several tests related to the same subject use subject{} to DRY them up.

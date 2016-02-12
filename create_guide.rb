@@ -15,7 +15,7 @@ File.open('rspec_guide.md', 'w') do |file|
         end
         file.puts "```\n\n"
       else
-        next if p.text =~ /Discuss this guideline|Learn more about/
+        next if p.text =~ /Discuss this guideline|Learn more about|More about/
         file.puts p.text.strip.gsub("\n", '').gsub(/\s\s+/, ' ')
         file.puts "\n"
       end
