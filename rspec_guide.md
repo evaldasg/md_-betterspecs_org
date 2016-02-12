@@ -58,7 +58,11 @@ end
 
 In the example we removed the description related to the status code, which has been replaced by the expectation it { is_expected.to respond_with 422 }. If you run this test typing rspec filename you will obtain a readable output.
 
-Formatted Output
+```ruby
+# Formatted Output
+when not valid
+  it should respond with 422
+```
 
 ### Single expectation test
 
@@ -90,7 +94,16 @@ end
 
 Testing is a good practice, but if you do not test the edge cases, it will not be useful. Test valid, edge and invalid case. For example, consider the following action.
 
-Destroy action
+```ruby
+# Destroy action
+before_filter :find_owned_resources
+before_filter :find_resource
+
+def destroy
+  render 'show'
+  @consumption.destroy
+end
+```
 
 The error I usually see lies in testing only whether the resource has been removed. But there are at least two edge cases: when the resource is not found and when it's not owned. As a rule of thumb think of all the possible inputs and test them.
 

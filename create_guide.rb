@@ -7,7 +7,7 @@ File.open('rspec_guide.md', 'w') do |file|
   doc.css('article').each do |article|
     file.puts "### #{article.css('h1 a').text}\n\n"
     article.css('p').each do |p|
-      if p.attributes['class'] && p.attributes['class'].value =~ /wrong|correct/
+      if p.attributes['class'] && p.attributes['class'].value =~ /wrong|correct|base/
         file.puts "```ruby"
         file.puts "# #{p.text}"
         p.next_element.css('pre')[0].text.split("\n").each do |line|
